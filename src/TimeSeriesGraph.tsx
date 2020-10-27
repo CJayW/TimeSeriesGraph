@@ -23,8 +23,6 @@ type NumberRange = Range<number>;
 type Props = {
   Axis: Partial<{
     left :   Partial<AxisProps>,
-    top :    Partial<AxisProps>,
-    right :  Partial<AxisProps>,
     bottom : Partial<AxisProps>,
   }>
 }
@@ -71,20 +69,12 @@ class TimeSeriesGraph{
 
   axis : Partial<{
     left : Axis,
-    top : Axis,
-    right : Axis,
     bottom : Axis,
   }> = {}
 
   recalcSize=()=>{
     if(this.axis.left) {
       this.graphArea.left = this.axis.left.getAxisWidth(this.ctx);
-    }
-    if(this.axis.right) {
-      this.graphArea.right = this.axis.right.getAxisWidth(this.ctx);
-    }
-    if(this.axis.top) {
-      this.graphArea.top = this.axis.top.getAxisHeight(this.ctx);
     }
     if(this.axis.bottom) {
       this.graphArea.bottom = this.axis.bottom.getAxisHeight(this.ctx);
@@ -136,7 +126,8 @@ class TimeSeriesGraph{
         ]
       })
     }
-    
+
+
     //TODO draw graph
   }
 
